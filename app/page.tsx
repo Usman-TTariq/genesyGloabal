@@ -43,7 +43,7 @@ export default function Home() {
                 </div>
 
                 <div className="hero-btn wow fadeInUp" data-wow-delay="0.25s">
-                  <Link href="/contact" className="btn-default">get in touch</Link>
+                  <Link href="/contact#contact-form" className="btn-default">get in touch</Link>
                 </div>
               </div>
             </div>
@@ -343,7 +343,6 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Follow us on Twitter</h3>
                   <p>@genesysgloballlc</p>
-                  <p>@artistic_official</p>
                 </div>
 
                 <div className="agency-social-btn">
@@ -361,7 +360,6 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Join us on Linked in</h3>
                   <p>genesysgloballlc</p>
-                  <p>user.artistic_official</p>
                 </div>
 
                 <div className="agency-social-btn">
@@ -379,7 +377,6 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Follow on Instagram</h3>
                   <p>@genesysgloballlc</p>
-                  <p>@artistic_insta_official</p>
                 </div>
 
                 <div className="agency-social-btn">

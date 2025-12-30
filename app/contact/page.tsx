@@ -1,9 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Contact() {
+  useEffect(() => {
+    // Scroll to contact form if hash is present
+    if (window.location.hash === '#contact-form') {
+      setTimeout(() => {
+        const element = document.getElementById('contact-form');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
@@ -130,7 +141,7 @@ export default function Contact() {
 
             <div className="col-lg-6">
               {/* Contact Us Form */}
-              <div className="contact-us-form">
+              <div className="contact-us-form" id="contact-form">
                 <form id="contactForm" onSubmit={handleSubmit} className="wow fadeInUp" data-wow-delay="0.25s">
                   <div className="row">
                     <div className="form-group col-md-6 mb-4">

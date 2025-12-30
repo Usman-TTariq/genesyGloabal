@@ -14,7 +14,7 @@ export default function Footer() {
                 </div>
                 
                 <div className="work-together-btn">
-                  <Link href="/contact">
+                  <Link href="/contact#contact-form">
                     <img src="/images/arrow-dark.svg" alt="" />
                     <span>Get in Touch</span>
                   </Link>
