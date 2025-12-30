@@ -115,7 +115,7 @@ export default function Footer() {
             <div className="row align-items-center">
               <div className="col-lg-12">
                 <div className="footer-copyright-text">
-                  <p>Copyright © 2024 All Rights Reserved.</p>
+                  <p>Copyright © 2026 All Rights Reserved.</p>
                 </div>
               </div>
             </div>
