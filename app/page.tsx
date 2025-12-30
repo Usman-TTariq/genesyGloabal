@@ -343,6 +343,7 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Follow us on Twitter</h3>
                   <p>@genesysgloballlc</p>
+                  <p>@artistic_official</p>
                 </div>
 
                 <div className="agency-social-btn">
@@ -360,6 +361,7 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Join us on Linked in</h3>
                   <p>genesysgloballlc</p>
+                  <p>user.artistic_official</p>
                 </div>
 
                 <div className="agency-social-btn">
@@ -377,6 +379,7 @@ export default function Home() {
                 <div className="agency-social-content">
                   <h3>Follow on Instagram</h3>
                   <p>@genesysgloballlc</p>
+                  <p>@artistic_insta_official</p>
                 </div>
 
                 <div className="agency-social-btn">
