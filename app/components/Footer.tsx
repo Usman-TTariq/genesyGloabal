@@ -1,6 +1,42 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubscribing(true);
+    setNewsletterStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setNewsletterStatus({ type: 'success', message: 'Successfully subscribed!' });
+        setNewsletterEmail('');
+      } else {
+        setNewsletterStatus({ type: 'error', message: data.message || 'Error subscribing. Please try again.' });
+      }
+    } catch (error) {
+      setNewsletterStatus({ type: 'error', message: 'Error subscribing. Please try again.' });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <footer className="main-footer">
       <div className="footer-work-together">
@@ -92,11 +128,27 @@ export default function Footer() {
             <div className="col-lg-4">
               <div className="footer-newsletter-form">
                 <h3>Subscribe our newsletter</h3>
-                <form id="newslettersForm" action="#" method="POST">
+                <form id="newslettersForm" onSubmit={handleNewsletterSubmit}>
                   <div className="form-group">
-                    <input type="email" name="mail" className="form-control" id="mail" placeholder="Enter your email" required />
-                    <button type="submit" className="btn-highlighted">subscribe</button>
+                    <input
+                      type="email"
+                      name="mail"
+                      className="form-control"
+                      id="mail"
+                      placeholder="Enter your email"
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      required
+                    />
+                    <button type="submit" className="btn-highlighted" disabled={isSubscribing}>
+                      {isSubscribing ? 'Subscribing...' : 'subscribe'}
+                    </button>
                   </div>
+                  {newsletterStatus.type && (
+                    <div className={`mt-2 ${newsletterStatus.type === 'success' ? 'text-success' : 'text-danger'}`} style={{ fontSize: '14px', marginTop: '8px' }}>
+                      {newsletterStatus.message}
+                    </div>
+                  )}
                 </form>
               </div>
 

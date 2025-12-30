@@ -22,6 +22,8 @@ export default function Contact() {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -30,11 +32,40 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add API call here
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
+        // Reset form
+        setFormData({
+          fname: '',
+          lname: '',
+          phone: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({ type: 'error', message: data.message || 'Sorry, there was an error sending your message. Please try again.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Sorry, there was an error sending your message. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -215,7 +246,14 @@ export default function Contact() {
 
                     <div className="col-lg-12">
                       <div className="contact-form-btn">
-                        <button type="submit" className="btn-highlighted">submit message</button>
+                        <button type="submit" className="btn-highlighted" disabled={isSubmitting}>
+                          {isSubmitting ? 'Sending...' : 'submit message'}
+                        </button>
+                        {submitStatus.type && (
+                          <div className={`mt-3 ${submitStatus.type === 'success' ? 'text-success' : 'text-danger'}`} style={{ fontSize: '14px', marginTop: '10px' }}>
+                            {submitStatus.message}
+                          </div>
+                        )}
                         <div id="msgSubmit" className="h3 hidden"></div>
                       </div>
                     </div>
