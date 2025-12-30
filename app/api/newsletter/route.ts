@@ -14,16 +14,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate environment variables
+    if (!process.env.SMTP_HOST || !process.env.SMTP_PORT || !process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.RECIPIENT_EMAIL) {
+      console.error('Missing SMTP environment variables');
+      return NextResponse.json(
+        { message: 'Server configuration error. Please contact administrator.' },
+        { status: 500 }
+      );
+    }
+
     // Create transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: false,
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     });
+
+    // Verify transporter configuration
+    await transporter.verify();
 
     // Email content
     const mailOptions = {
@@ -46,10 +61,16 @@ export async function POST(request: NextRequest) {
       { message: 'Subscription successful' },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error sending email:', error);
+    
+    // More detailed error message for debugging (only in development)
+    const errorMessage = process.env.NODE_ENV === 'development' 
+      ? `Error: ${error.message || 'Unknown error'}`
+      : 'Error processing subscription. Please try again later.';
+    
     return NextResponse.json(
-      { message: 'Error processing subscription' },
+      { message: errorMessage },
       { status: 500 }
     );
   }
