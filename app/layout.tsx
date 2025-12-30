@@ -8,6 +8,11 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Genesy Global',
   description: 'Genesy Global - Creative Digital Agency',
+  icons: {
+    icon: '/GG LOGO 3D (1).svg',
+    shortcut: '/GG LOGO 3D (1).svg',
+    apple: '/GG LOGO 3D (1).svg',
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/GG LOGO 3D (1).svg" />
+        <link rel="alternate icon" href="/images/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet" />
