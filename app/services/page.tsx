@@ -298,7 +298,7 @@ export default function Services() {
                     </div>
                     <div className="experts-counter-content">
                       <h2><span className="counter">35</span>k+</h2>
-                      <p>Happy Customer Around the Word</p>
+                      <p>Happy Customers Around the World</p>
                     </div>
                   </div>
 
@@ -308,7 +308,7 @@ export default function Services() {
                     </div>
                     <div className="experts-counter-content">
                       <h2><span className="counter">250</span>+</h2>
-                      <p>trusted best partners and sponsers</p>
+                      <p>trusted best partners and sponsors</p>
                     </div>
                   </div>
                 </div>
@@ -543,4 +543,5 @@ export default function Services() {
     </>
   );
 }
+
 
