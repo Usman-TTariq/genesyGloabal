@@ -338,26 +338,7 @@ export default function About() {
                   </div>
 
                   <div className="col-lg-7">
-                    <div className="our-partners-list">
-                      <div className="company-logo wow fadeInUp">
-                        <img src="/images/company-logo-1.svg" alt="" />
-                      </div>
-                      <div className="company-logo wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="/images/company-logo-2.svg" alt="" />
-                      </div>
-                      <div className="company-logo wow fadeInUp" data-wow-delay="0.4s">
-                        <img src="/images/company-logo-3.svg" alt="" />
-                      </div>
-                      <div className="company-logo wow fadeInUp" data-wow-delay="0.6s">
-                        <img src="/images/company-logo-4.svg" alt="" />
-                      </div>
-                      <div className="company-logo wow fadeInUp" data-wow-delay="0.8s">
-                        <img src="/images/company-logo-5.svg" alt="" />
-                      </div>
-                      <div className="company-logo wow fadeInUp" data-wow-delay="1s">
-                        <img src="/images/company-logo-6.svg" alt="" />
-                      </div>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
