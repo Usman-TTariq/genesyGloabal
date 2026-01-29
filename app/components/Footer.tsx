@@ -76,7 +76,7 @@ export default function Footer() {
                       <img src="/images/icon-phone.svg" alt="" />
                     </div>
                     <div className="footer-contact-content">
-                      <p>+1 512-649-4906</p>
+                      <p>+1 (847) 208-7685</p>
                     </div>
                   </div>
 
