@@ -140,7 +140,7 @@ export default function Contact() {
                       </div>
                       <div className="contact-item-content">
                         <h3>phone number</h3>
-                        <p><a href="tel:+15126494906">+1 512-649-4906</a></p>
+                        <p><a href="tel:+18472087685">+1 (847) 208-7685</a></p>
                       </div>
                     </div>
 
