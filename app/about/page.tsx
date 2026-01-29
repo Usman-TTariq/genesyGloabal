@@ -732,9 +732,7 @@ export default function About() {
                   <div className="swiper-wrapper" data-cursor-text="Drag">
                     <div className="swiper-slide">
                       <div className="testimonial-item">
-                        <div className="testimonial-company-logo">
-                          <img src="/images/icon-testimonial-logo.svg" alt="" />
-                        </div>
+                        
                         <div className="testimonial-rating">
                           <i className="fa-solid fa-star"></i>
                           <i className="fa-solid fa-star"></i>
@@ -761,9 +759,7 @@ export default function About() {
 
                     <div className="swiper-slide">
                       <div className="testimonial-item">
-                        <div className="testimonial-company-logo">
-                          <img src="/images/icon-testimonial-logo.svg" alt="" />
-                        </div>
+                       
                         <div className="testimonial-rating">
                           <i className="fa-solid fa-star"></i>
                           <i className="fa-solid fa-star"></i>
