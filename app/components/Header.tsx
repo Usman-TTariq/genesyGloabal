@@ -80,7 +80,7 @@ export default function Header() {
                                                 </div>
                                                 <div className="header-contact-box-content">
                                                     <h3>phone</h3>
-                                                    <p>+1 512-649-4906</p>
+                                                    <p>+1 (847) 208-7685</p>
                                                 </div>
                                             </div>
 
