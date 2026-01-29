@@ -868,8 +868,8 @@ export default function About() {
                   </figure>
                 </div>
                 <div className="faq-cta-box">
-                  <a href="tel:+15126494906">
-                    <img src="/images/faq-cta-phone.svg" alt="" />+1 512-649-4906
+                  <a href="tel:+18472087685">
+                    <img src="/images/faq-cta-phone.svg" alt="" />+1 (847) 208-7685
                   </a>
                 </div>
               </div>
